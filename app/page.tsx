@@ -34,7 +34,7 @@ export default function Home() {
           Set in EB Garamond &amp; Cormorant · Composed in Paris ·{" "}
           {new Date().getFullYear()}
         </p>
-        <p className="mt-3 font-serif text-sm italic text-[#8a7c6a]">— fin —</p>
+        <p className="mt-3 font-serif text-sm italic text-[#8a7c6a]">· fin ·</p>
       </footer>
     </main>
   );

@@ -1,33 +1,8 @@
 "use client";
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { RevealText, InkSpread, RevealOnScroll } from "@/components/ui/animations";
-
-function Counter({ to, suffix = "", duration = 2 }: { to: number; suffix?: string; duration?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  const [n, setN] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const t = Math.min((now - start) / (duration * 1000), 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      setN(Math.round(eased * to));
-      if (t < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }, [inView, to, duration]);
-
-  return (
-    <span ref={ref}>
-      {n}
-      {suffix}
-    </span>
-  );
-}
 
 const facts = [
   { label: "Founded",  value: "Saména",           note: "B2B SaaS · 2025"                    },
@@ -38,12 +13,6 @@ const facts = [
   { label: "Tongues",  value: "FR · EN · DE · ES", note: "C1 in English"                      },
 ];
 
-const counters = [
-  { n: 6,  suffix: "", label: "training sessions per week"     },
-  { n: 12, suffix: "", label: "years of competitive swimming"  },
-  { n: 25, suffix: "", label: "Vélib' colonies modelled"       },
-  { n: 10, suffix: "", label: "students mentored — lycée to prépa" },
-];
 
 export default function About() {
   const ref = useRef<HTMLElement>(null);
@@ -106,7 +75,7 @@ export default function About() {
             <div className="space-y-8 font-serif text-lg leading-[1.85] text-[#1a1612] md:text-xl">
               <RevealOnScroll>
                 <p>
-                  I came to data science by an unsentimental route — three years
+                  I came to data science by an unsentimental route: three years
                   of <em>classes préparatoires</em> in southern France, the kind
                   of regimented mathematical apprenticeship that leaves you
                   allergic to imprecision. Then Télécom Paris, where I picked
@@ -118,11 +87,11 @@ export default function About() {
               <RevealOnScroll delay={0.1}>
                 <p>
                   In May 2025 I co-founded{" "}
-                  <a href="#projects" className="ink-hover font-medium text-[#8c2a1f]">
+                  <a href="https://samena.cloud" target="_blank" rel="noopener noreferrer" className="ink-hover font-medium text-[#8c2a1f]">
                     Saména
                   </a>{" "}
                   with two friends, Matthieu and Ange. We&apos;re building a
-                  document-intelligence platform for consulting firms — semantic
+                  document-intelligence platform for consulting firms: semantic
                   search at scale, structured extraction, zero hallucinations.
                   Incubated at Télécom Paris under Prof. Fabian Suchanek, whose
                   Knowledge Base Lab gave us early technical credibility and a
@@ -139,7 +108,7 @@ export default function About() {
                   className="pullquote my-12 text-2xl md:text-[1.8rem]"
                 >
                   &ldquo;The interesting work happens where research meets
-                  shipping — where you have to make the proof actually run, on
+                  shipping, where you have to make the proof actually run, on
                   actual data, for actual people.&rdquo;
                 </motion.blockquote>
               </RevealOnScroll>
@@ -157,30 +126,11 @@ export default function About() {
                 </p>
               </RevealOnScroll>
 
-              <RevealOnScroll delay={0.2}>
-                <div className="my-16 grid grid-cols-2 gap-px overflow-hidden rounded-sm border border-[#d4c9b3] bg-[#d4c9b3] md:grid-cols-4">
-                  {counters.map((c) => (
-                    <motion.div
-                      key={c.label}
-                      whileHover={{ backgroundColor: "#ede5d3" }}
-                      className="bg-[#f5f1e8] p-6 transition-colors"
-                    >
-                      <p className="font-display text-5xl italic text-[#1a1612] md:text-6xl">
-                        <Counter to={c.n} suffix={c.suffix} />
-                      </p>
-                      <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
-                        {c.label}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </RevealOnScroll>
-
               <RevealOnScroll>
                 <div className="border-t border-[#d4c9b3] pt-6">
                   <p className="font-serif text-sm leading-relaxed text-[#8a7c6a]">
                     <sup className="font-mono">1</sup> If you came here to read a
-                    bullet-pointed CV, my apologies — you can find one{" "}
+                    bullet-pointed CV, my apologies; you can find one{" "}
                     <a href="/Moncet_Xisco_CV.pdf" className="ink-hover italic text-[#1a1612]">
                       in PDF, neatly typeset
                     </a>

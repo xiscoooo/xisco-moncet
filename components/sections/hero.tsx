@@ -51,7 +51,7 @@ export default function Hero() {
           className="mb-12 flex items-center justify-between border-y border-[#d4c9b3] py-3"
         >
           <span className="font-mono text-[0.65rem] uppercase tracking-[0.25em] text-[#8a7c6a]">
-            Vol. I — № 04
+            Vol. I · № 04
           </span>
           <span className="hidden font-mono text-[0.65rem] uppercase tracking-[0.25em] text-[#8a7c6a] md:inline">
             Founder &amp; Data Scientist

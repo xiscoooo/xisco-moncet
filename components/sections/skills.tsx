@@ -189,7 +189,7 @@ export default function Skills() {
             <p className="col-span-12 font-serif text-lg italic leading-[1.85] text-[#3d342a] md:col-span-9 md:text-xl">
               I&apos;ve never trusted skill lists that read like supermarket
               shelves. What follows is organized by what these tools actually
-              <em> do</em> for me — what kinds of questions they let me ask, and
+              <em> do</em> for me: what kinds of questions they let me ask, and
               what kinds of answers they let me build.
             </p>
           </div>

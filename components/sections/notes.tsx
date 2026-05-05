@@ -12,7 +12,7 @@ const notes = [
     readingTime: "9 min",
     title: "On parameter counting as a sanity check",
     excerpt:
-      "If you can't count the parameters of your network on the back of an envelope, you don't really understand it yet. A pedagogical note built from a year of teaching myself to derive backprop from scratch — including BPTT for RNNs, where most textbooks become suddenly evasive.",
+      "If you can't count the parameters of your network on the back of an envelope, you don't really understand it yet. A pedagogical note built from a year of teaching myself to derive backprop from scratch, including BPTT for RNNs, where most textbooks become suddenly evasive.",
   },
   {
     date: "March 2026",
@@ -20,7 +20,7 @@ const notes = [
     readingTime: "12 min",
     title: "Why Vélib' has a closed-form equilibrium",
     excerpt:
-      "A short essay on the surprising fact that you can write down, exactly, the long-run distribution of bikes across 25 stations. The price is a few assumptions of independence and reversibility — but the structure that survives is genuinely beautiful.",
+      "A short essay on the surprising fact that you can write down, exactly, the long-run distribution of bikes across 25 stations. The price is a few assumptions of independence and reversibility, but the structure that survives is genuinely beautiful.",
   },
   {
     date: "February 2026",
@@ -124,7 +124,7 @@ export default function Notes() {
             </aside>
             <p className="col-span-12 font-serif text-lg italic leading-[1.85] text-[#3d342a] md:col-span-9 md:text-xl">
               A small collection of notes I keep on whatever I&apos;m teaching
-              myself or being taught. Not blog posts in the modern sense — more
+              myself or being taught. Not blog posts in the modern sense, more
               like the section of a private notebook one would happen to share
               with a curious correspondent.
             </p>

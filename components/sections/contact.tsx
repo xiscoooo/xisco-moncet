@@ -41,7 +41,7 @@ function ChannelRow({ c, idx }: { c: (typeof channels)[number]; idx: number }) {
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="relative font-serif text-lg italic text-[#3d342a] md:text-xl"
         >
-          — {c.label}
+          {c.label}
         </motion.span>
         <motion.span
           animate={{ color: hovered ? "#8c2a1f" : "#1a1612", x: hovered ? -8 : 0 }}
@@ -83,7 +83,7 @@ export default function Contact() {
             <RevealOnScroll>
               <p className="dropcap font-serif text-xl leading-[1.75] text-[#1a1612] md:text-2xl">
                 I&apos;m always glad to hear from people working on hard
-                problems — whether it&apos;s applied research, building
+                problems, whether it&apos;s applied research, building
                 consulting-grade AI, or thinking through the architecture of
                 something new. I read every message, and reply to most of them.
                 The fastest way is by email.

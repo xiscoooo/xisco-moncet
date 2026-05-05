@@ -26,7 +26,7 @@ function SamenaProject() {
     { date: "Sept 2025", event: "Incubation at Télécom Paris"                              },
     { date: "Nov 2025",  event: "Prof. Suchanek scientific supervision"                    },
     { date: "Q1 2026",   event: "First consulting-firm prospects (AGH, Stanwell)"          },
-    { date: "Now",       event: "V1.5 → V3 — mission workspace, structured filters"       },
+    { date: "Now",       event: "V1.5 → V3, mission workspace, structured filters"       },
   ];
 
   return (
@@ -41,7 +41,7 @@ function SamenaProject() {
               i.
             </motion.div>
             <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
-              2025 — present
+              2025 · present
             </p>
             <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
               Founder · CEO
@@ -52,7 +52,7 @@ function SamenaProject() {
             <div className="mt-8 hidden md:block">
               <Magnetic strength={0.3}>
                 <a
-                  href="https://samena.ai"
+                  href="https://samena.cloud"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor-label="visit"
@@ -79,7 +79,7 @@ function SamenaProject() {
           <RevealOnScroll delay={0.1}>
             <p className="mt-8 font-serif text-xl leading-[1.8] text-[#1a1612]">
               An end-to-end platform for consultants : ingestion of
-              heterogeneous corpora — PDFs, slide decks, internal reports —
+              heterogeneous corpora (PDFs, slide decks, internal reports),
               followed by structured extraction with explicit grounding,
               semantic search with citation, and a mission workspace that
               accumulates institutional knowledge over time. Built on
@@ -202,7 +202,7 @@ function JuryProject() {
   const criteria = [
     {
       label: "Quantitative",
-      d: "Structured scoring grids — market size, traction metrics, financial assumptions, go-to-market feasibility",
+      d: "Structured scoring grids: market size, traction metrics, financial assumptions, go-to-market feasibility",
     },
     {
       label: "Qualitative",
@@ -218,7 +218,7 @@ function JuryProject() {
             ii.
           </div>
           <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
-            2024 — 2025
+            2024 · 2025
           </p>
           <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
             Jury Member
@@ -241,7 +241,7 @@ function JuryProject() {
               <em>Prix des Technologies et du Numérique</em>, a competitive award
               organised by Institut Polytechnique de Paris to identify and
               accelerate high-potential deep-tech ventures. My mandate covered
-              the agritech vertical — applying both structured scoring grids and
+              the agritech vertical, applying both structured scoring grids and
               qualitative judgment to assess founders, market theses, and
               technical credibility across multiple selection rounds. The exercise
               sharpens a particular skill : reading the gap between what a team
@@ -259,7 +259,7 @@ function JuryProject() {
             >
               &ldquo;The strongest candidates weren&apos;t those with the largest
               market. They were those who understood precisely where their thesis
-              could break — and had a plan for it.&rdquo;
+              could break, and had a plan for it.&rdquo;
             </motion.blockquote>
           </RevealOnScroll>
 
@@ -329,7 +329,7 @@ function VelibProject() {
             <em>Vélib&apos;</em>, as a closed migration network
           </h3>
           <p className="mt-2 font-display text-xl italic text-[#3d342a]">
-            Stochastic modelling — a queuing theory exercise.
+            Stochastic modelling, a queuing theory exercise.
           </p>
 
           <RevealOnScroll delay={0.1}>
@@ -352,7 +352,7 @@ function VelibProject() {
                 π(n₁, n₂, …, n₂₅) ∝ ∏ᵢ νᵢⁿⁱ / nᵢ!
               </p>
               <p className="mt-3 font-serif text-sm italic text-[#3d342a]">
-                The stationary distribution factorizes — even though the
+                The stationary distribution factorizes, even though the
                 stations are coupled by bike conservation. A small theorem with
                 a big consequence : you can analyze each station in isolation.
               </p>
@@ -384,10 +384,10 @@ function SemanticProject() {
             iv.
           </div>
           <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
-            2025 — 2026
+            2025 · 2026
           </p>
           <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
-            Foundation work — Saména
+            Foundation work · Saména
           </p>
         </aside>
         <div className="col-span-12 md:col-span-9">

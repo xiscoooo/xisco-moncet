@@ -34,7 +34,7 @@ export function Preloader() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#8a7c6a]"
             >
-              Vol. I — № 04
+              Vol. I · № 04
             </motion.p>
 
             <motion.h1

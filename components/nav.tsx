@@ -62,7 +62,7 @@ export default function Nav() {
               Xisco
             </motion.span>
             <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-[#8a7c6a]">
-              — moncet
+              moncet
             </span>
           </a>
 

@@ -25,7 +25,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Xisco Moncet — Founder & Data Scientist",
+  title: "Xisco Moncet · Founder & Data Scientist",
   description:
     "CEO & co-founder of Saména. Data Science at Télécom Paris. Notes from the intersection of research, product, and shipping.",
   metadataBase: new URL("https://xisco.dev"),
