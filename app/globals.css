@@ -1,26 +1,196 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-serif: var(--font-serif), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-display), "Playfair Display", Georgia, serif;
+  --font-mono: var(--font-mono), "Courier New", monospace;
+
+  --color-paper: #f5f1e8;
+  --color-paper-warm: #ede5d3;
+  --color-ink: #1a1612;
+  --color-ink-soft: #3d342a;
+  --color-muted: #8a7c6a;
+  --color-rule: #d4c9b3;
+  --color-accent: #8c2a1f;
+  --color-accent-soft: #b85a4f;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  /* offset scroll anchors to clear the fixed header */
+  scroll-padding-top: 80px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f1e8;
+  background-image:
+    radial-gradient(at 20% 30%, rgba(139, 110, 70, 0.04) 0%, transparent 50%),
+    radial-gradient(at 80% 70%, rgba(139, 110, 70, 0.04) 0%, transparent 50%);
+}
+
+/* ── Custom cursor: hide native on desktop ── */
+@media (min-width: 768px) {
+  .cursor-none-md,
+  .cursor-none-md * { cursor: none !important; }
+}
+
+/* ── Keyboard focus ring ── */
+:focus-visible {
+  outline: 2px solid #8c2a1f;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Paper grain overlay ── */
+.paper-grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.4  0 0 0 0 0.3  0 0 0 0 0.2  0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Drop cap ── */
+.dropcap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  line-height: 0.85;
+  font-weight: 500;
+  margin: 0.35rem 0.65rem 0 0;
+  color: var(--color-ink);
+}
+
+/* ── Marginalia ── */
+.marginalia {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ── Pull quote ── */
+.pullquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.5rem;
+  color: var(--color-ink-soft);
+}
+
+/* ── Ornament rule ── */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--color-muted);
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-rule) 50%, transparent);
+}
+
+/* ── Ink hover underline ── */
+.ink-hover {
+  position: relative;
+  display: inline-block;
+}
+.ink-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.ink-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Image reveal mask ── */
+@keyframes maskReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.mask-reveal {
+  animation: maskReveal 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* ── Glitch on hover ── */
+@keyframes glitchSubtle {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+}
+.glitch:hover { animation: glitchSubtle 0.4s linear; }
+
+/* ── Float ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+.float-slow { animation: float 6s ease-in-out infinite; }
+
+/* ── Spin slow ── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin-slow { animation: spin-slow 20s linear infinite; }
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(180deg, #1a1612 0%, #1a1612 60%, transparent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Chapter break ── */
+.chapter-break {
+  position: relative;
+  padding: 4rem 0;
+  text-align: center;
+}
+.chapter-break::before {
+  content: "§";
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-rule);
+  font-style: italic;
+}
+
+/* ── Orbit ── */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+.orbit-slow { animation: orbit 24s linear infinite; }
+
+/* ── Ink blot ── */
+@keyframes inkBlot {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(20); opacity: 0; }
+}
+.ink-blot { animation: inkBlot 1s ease-out forwards; }
+
+/* ── Skew on scroll ── */
+.skew-on-scroll {
+  transform-origin: center;
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
