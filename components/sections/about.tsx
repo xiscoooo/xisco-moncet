@@ -42,7 +42,7 @@ const counters = [
   { n: 6,  suffix: "", label: "training sessions per week"     },
   { n: 12, suffix: "", label: "years of competitive swimming"  },
   { n: 25, suffix: "", label: "Vélib' colonies modelled"       },
-  { n: 63, suffix: "", label: "respondents surveyed for Replico" },
+  { n: 10, suffix: "", label: "students mentored — lycée to prépa" },
 ];
 
 export default function About() {

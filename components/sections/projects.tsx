@@ -198,11 +198,16 @@ function SamenaProject() {
   );
 }
 
-function ReplicoProject() {
-  const survey = [
-    { v: "63", label: "respondents (radiologists & technicians)" },
-    { v: "29", label: "slides in the validation deck"           },
-    { v: "3",  label: "cohorts segmented"                       },
+function JuryProject() {
+  const criteria = [
+    {
+      label: "Quantitative",
+      d: "Structured scoring grids — market size, traction metrics, financial assumptions, go-to-market feasibility",
+    },
+    {
+      label: "Qualitative",
+      d: "Team dynamics, narrative coherence, competitive moat, readiness for incubation and acceleration",
+    },
   ];
 
   return (
@@ -212,51 +217,87 @@ function ReplicoProject() {
           <div className="font-display text-[10rem] italic leading-none text-[#d4c9b3] md:text-[12rem]">
             ii.
           </div>
-          <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">2026</p>
+          <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
+            2024 — 2025
+          </p>
           <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
-            Entrepreneurship — NCuber
+            Jury Member
+          </p>
+          <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
+            Institut Polytechnique de Paris
           </p>
         </aside>
         <div className="col-span-12 md:col-span-9">
-          <h3 className="font-display text-5xl text-[#1a1612] md:text-6xl">Replico</h3>
+          <h3 className="font-display text-5xl text-[#1a1612] md:text-6xl">
+            Prix des Technologies et du Numérique
+          </h3>
           <p className="mt-2 font-display text-xl italic text-[#3d342a]">
-            Market validation for an AI-powered MRI startup.
+            Evaluating agritech ventures at the Télécom Paris incubator.
           </p>
 
           <RevealOnScroll delay={0.1}>
             <p className="mt-8 font-serif text-lg leading-[1.85] text-[#1a1612]">
-              A 29-slide validation study for an early-stage healthtech startup
-              applying generative models to MRI imaging. Designed and ran a
-              quantitative questionnaire (n = 63 medical imaging professionals),
-              built cohort segmentation, computed TAM/SAM/SOM, and produced
-              concrete business-model recommendations with bibliographic backing.
+              Selected as jury member for the{" "}
+              <em>Prix des Technologies et du Numérique</em>, a competitive award
+              organised by Institut Polytechnique de Paris to identify and
+              accelerate high-potential deep-tech ventures. My mandate covered
+              the agritech vertical — applying both structured scoring grids and
+              qualitative judgment to assess founders, market theses, and
+              technical credibility across multiple selection rounds. The exercise
+              sharpens a particular skill : reading the gap between what a team
+              claims and what the numbers can actually support.
             </p>
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.15}>
-            <div className="my-10 grid grid-cols-3 gap-px overflow-hidden border border-[#d4c9b3] bg-[#d4c9b3]">
-              {survey.map((m, i) => (
-                <motion.div
-                  key={m.label}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  whileHover={{ backgroundColor: "#ede5d3" }}
-                  className="bg-[#f5f1e8] p-5 transition-colors"
-                >
-                  <p className="font-display text-4xl italic text-[#8c2a1f]">{m.v}</p>
-                  <p className="mt-2 font-mono text-[0.6rem] uppercase tracking-widest text-[#8a7c6a]">
-                    {m.label}
-                  </p>
-                </motion.div>
-              ))}
+            <motion.blockquote
+              initial={{ scale: 0.97 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="pullquote my-10 text-2xl md:text-3xl"
+            >
+              &ldquo;The strongest candidates weren&apos;t those with the largest
+              market. They were those who understood precisely where their thesis
+              could break — and had a plan for it.&rdquo;
+            </motion.blockquote>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.2}>
+            <div className="my-10">
+              <p className="marginalia mb-4">¶ Evaluation framework</p>
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                {criteria.map((c, i) => (
+                  <motion.div
+                    key={c.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.12, duration: 0.5 }}
+                    whileHover={{ y: -4, borderColor: "#8c2a1f" }}
+                    className="border border-[#d4c9b3] bg-[#f5f1e8] p-5 transition-all"
+                  >
+                    <p className="font-mono text-[0.65rem] uppercase tracking-widest text-[#8c2a1f]">
+                      {c.label}
+                    </p>
+                    <p className="mt-2 font-serif text-sm leading-relaxed text-[#3d342a]">
+                      {c.d}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </RevealOnScroll>
 
           <RevealOnScroll>
             <div className="mt-8 flex flex-wrap gap-2">
-              {["Market research", "Quant analysis", "Strategy", "TAM/SAM/SOM", "HTML deck"].map((tag) => (
+              {[
+                "Agritech",
+                "Startup evaluation",
+                "Deep tech",
+                "Institut Polytechnique de Paris",
+                "Strategic analysis",
+              ].map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-[#d4c9b3] px-3 py-1 font-mono text-xs text-[#3d342a] hover:border-[#1a1612] hover:bg-[#1a1612]/5"
@@ -397,14 +438,14 @@ export default function Projects() {
               <RevealText by="word" staggerSpeed={0.05}>Selected work</RevealText>
             </h2>
             <span className="hidden font-mono text-[0.65rem] uppercase tracking-[0.25em] text-[#8a7c6a] md:block">
-              ¶ four short essays in code
+              ¶ four essays, four disciplines
             </span>
           </div>
           <InkSpread className="mb-16 bg-[#d4c9b3]" />
         </RevealOnScroll>
 
         <SamenaProject />
-        <ReplicoProject />
+        <JuryProject />
         <VelibProject />
         <SemanticProject />
       </div>
