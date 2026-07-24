@@ -44,12 +44,13 @@ const categories: Category[] = [
       { name: "BERT", weight: "primary" },
       { name: "Sentence-Transformers", weight: "primary" },
       { name: "BERTopic" },
-      { name: "TF-IDF" },
+      { name: "TF-IDF / BM25" },
       { name: "HMM (Forward · Viterbi · Baum-Welch)" },
       { name: "IBM Models" },
       { name: "LLMs", weight: "primary" },
       { name: "RAG", weight: "primary" },
-      { name: "Vector databases" },
+      { name: "Qdrant", weight: "primary" },
+      { name: "spaCy" },
     ],
   },
   {
@@ -87,6 +88,23 @@ const categories: Category[] = [
       { name: "Next.js" },
       { name: "LaTeX" },
       { name: "Git / Linux" },
+    ],
+  },
+  {
+    num: "ε",
+    title: "Graphs",
+    subtitle: "networks, diffusion, and spectral methods",
+    description:
+      "SD212 with Thomas Bonald at Télécom Paris. Sparse matrices, ranking, community detection. The kind of course that makes you see graphs everywhere.",
+    skills: [
+      { name: "PageRank", weight: "primary" },
+      { name: "Louvain (modularity)" },
+      { name: "Spectral embedding" },
+      { name: "GNN", weight: "primary" },
+      { name: "Heat diffusion" },
+      { name: "Hierarchical clustering" },
+      { name: "scikit-network" },
+      { name: "Sparse matrices" },
     ],
   },
 ];
@@ -142,7 +160,7 @@ function CategoryCard({ cat, idx }: { cat: Category; idx: number }) {
           transition={{ duration: 0.4 }}
           className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest"
         >
-          chapter {cat.num} of δ
+          chapter {cat.num} of ε
         </motion.p>
       </div>
 
@@ -204,8 +222,8 @@ export default function Skills() {
         <RevealOnScroll delay={0.2}>
           <p className="mt-20 text-center font-serif text-sm italic text-[#8a7c6a]">
             Languages spoken : <strong>French</strong> (native) ·{" "}
-            <strong>English</strong> C1 · <strong>German</strong> B1 ·{" "}
-            <strong>Spanish</strong> A2.
+            <strong>English</strong> (academic, reports and presentations) ·{" "}
+            <strong>Portuguese</strong> (notions).
           </p>
         </RevealOnScroll>
       </div>

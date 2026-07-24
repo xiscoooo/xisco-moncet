@@ -126,10 +126,12 @@ export default function Hero() {
               I write code, raise questions, and ship products at the
               intersection of applied research and consulting. By day I lead{" "}
               <em className="text-[#8c2a1f]">Saména</em>, building
-              zero-hallucination document intelligence for serious people doing
-              serious work. By evening I&apos;m a Data Science student at
-              Télécom Paris, deep in backpropagation, stochastic processes, and
-              the small joys of a well-typeset proof.
+              zero-hallucination document intelligence for consulting firms,
+              incubated at Télécom Paris, presented at VivaTech. By evening
+              I&apos;m a second-year Data Science student at Télécom Paris,
+              Institut Polytechnique de Paris, with a published study in
+              computational linguistics and an increasingly unhealthy interest
+              in stochastic processes.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center gap-6 font-serif text-base md:text-lg">
@@ -194,7 +196,7 @@ export default function Hero() {
           </span>
           <span className="font-display text-3xl text-[#d4c9b3] md:text-5xl">·</span>
           <span className="font-display text-3xl italic text-[#3d342a] md:text-5xl">
-            literature
+            computational linguistics
           </span>
           <span className="font-display text-3xl text-[#d4c9b3] md:text-5xl">·</span>
         </ScrollVelocity>

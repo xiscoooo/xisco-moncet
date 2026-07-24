@@ -6,11 +6,11 @@ import { RevealText, InkSpread, RevealOnScroll } from "@/components/ui/animation
 
 const facts = [
   { label: "Founded",  value: "Saména",           note: "B2B SaaS · 2025"                    },
-  { label: "Role",     value: "CEO",               note: "Co-founder of three"                },
+  { label: "Role",     value: "CEO",               note: "Three co-founders"                  },
   { label: "School",   value: "Télécom Paris",     note: "Institut Polytechnique de Paris"    },
-  { label: "Track",    value: "Data Science",      note: "Class of 2027"                      },
-  { label: "Based in", value: "Paris",             note: "Originally from Albi"               },
-  { label: "Tongues",  value: "FR · EN · DE · ES", note: "C1 in English"                      },
+  { label: "Track",    value: "DSAI + ENTP",       note: "Class of 2027 · Césure Sept. 2026"  },
+  { label: "Based in", value: "Paris",             note: "Île-de-France"                      },
+  { label: "Tongues",  value: "FR · EN · PT",      note: "Academic English"                   },
 ];
 
 
@@ -90,12 +90,13 @@ export default function About() {
                   <a href="https://samena.cloud" target="_blank" rel="noopener noreferrer" className="ink-hover font-medium text-[#8c2a1f]">
                     Saména
                   </a>{" "}
-                  with two friends, Matthieu and Ange. We&apos;re building a
-                  document-intelligence platform for consulting firms: semantic
-                  search at scale, structured extraction, zero hallucinations.
-                  Incubated at Télécom Paris under Prof. Fabian Suchanek, whose
-                  Knowledge Base Lab gave us early technical credibility and a
-                  healthy fear of <em>retrieval at the tail of the distribution</em>.
+                  with Matthieu and Ange. We build document-intelligence for
+                  consulting firms: semantic search, structured extraction, zero
+                  hallucinations. Incubated at Télécom Paris under Prof. Fabian
+                  Suchanek, presented at VivaTech on the Sorbonne Université and
+                  Institut Polytechnique de Paris stand, applied to Y Combinator
+                  Summer 2026. I take a full year of leave starting September 2026
+                  to focus on it entirely.
                 </p>
               </RevealOnScroll>
 
@@ -115,14 +116,12 @@ export default function About() {
 
               <RevealOnScroll delay={0.1}>
                 <p>
-                  The rest of my time is spent reading, swimming (twelve years
-                  competitive, hard to give up), and quietly accumulating notes on
-                  backpropagation, stochastic processes, and Markov chain Monte
-                  Carlo. Some of those notes end up{" "}
-                  <a href="#notes" className="ink-hover font-medium">
-                    here
-                  </a>
-                  .
+                  Outside the desk: a competitive swimmer turned strength athlete (six
+                  sessions a week), a surfer when the waves cooperate, and someone who
+                  reads too much Kant and Wittgenstein for his own good. I am also
+                  working on a long-form essay about formalising philosophical problems
+                  in abstract mathematical frameworks, a project I keep returning to in
+                  the margins of everything else.
                 </p>
               </RevealOnScroll>
 

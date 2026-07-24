@@ -16,17 +16,18 @@ function SamenaProject() {
 
   const metrics = [
     { v: "0",  label: "hallucinations tolerated" },
-    { v: "3",  label: "co-founders"              },
-    { v: "V3", label: "current product roadmap"  },
-    { v: "1",  label: "scientific advisor"        },
+    { v: "1",  label: "paying client"            },
+    { v: "1",  label: "POC in progress"          },
+    { v: "YC", label: "S26 applicant"            },
   ];
 
   const timeline = [
-    { date: "May 2025",  event: "Saména founded with Matthieu & Ange"                     },
-    { date: "Sept 2025", event: "Incubation at Télécom Paris"                              },
-    { date: "Nov 2025",  event: "Prof. Suchanek scientific supervision"                    },
-    { date: "Q1 2026",   event: "First consulting-firm prospects (AGH, Stanwell)"          },
-    { date: "Now",       event: "V1.5 → V3, mission workspace, structured filters"       },
+    { date: "May 2025",   event: "Saména founded with Matthieu Bertrand & Ange Loisy"          },
+    { date: "Sept 2025",  event: "Incubation at Télécom Paris incubator"                        },
+    { date: "Nov 2025",   event: "Scientific supervision, Prof. Suchanek (YAGO, Knowledge Base Lab)" },
+    { date: "Q1 2026",    event: "First paying client, POC in progress, Early Access programme launched" },
+    { date: "June 2026",  event: "VivaTech — Sorbonne Université / Institut Polytechnique de Paris stand" },
+    { date: "2026",       event: "Y Combinator Summer 2026 application · press outreach (Consultor)"  },
   ];
 
   return (
@@ -58,7 +59,7 @@ function SamenaProject() {
                   data-cursor-label="visit"
                   className="ink-hover inline-flex items-center gap-1 font-serif italic text-[#8c2a1f]"
                 >
-                  Visit samena.ai <ArrowUpRight className="h-4 w-4" />
+                  Visit samena.cloud <ArrowUpRight className="h-4 w-4" />
                 </a>
               </Magnetic>
             </div>
@@ -198,6 +199,124 @@ function SamenaProject() {
   );
 }
 
+function ResearchProject() {
+  const results = [
+    { label: "H1 — confirmed",   value: "+0.232", note: "GEO coef., p < 0.0001, robust across visual-literacy covariates (~2.2× effect size)" },
+    { label: "H2 — negative",    value: "p = 0.65", note: "STTR 0.729 vs 0.728, Wilcoxon — lexical diversity unaffected"                      },
+    { label: "H3 — carry-over",  value: "r = 0.44", note: "Within-subject order effect, p = 0.004"                                             },
+  ];
+
+  return (
+    <article className="border-b border-[#d4c9b3] py-32">
+      <div className="grid grid-cols-12 gap-x-8 gap-y-12">
+        <aside className="col-span-12 md:col-span-3">
+          <div className="font-display text-[10rem] italic leading-none text-[#d4c9b3] md:text-[12rem]">
+            ii.
+          </div>
+          <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
+            2026
+          </p>
+          <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
+            Co-author
+          </p>
+          <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
+            Télécom Paris
+          </p>
+          <div className="mt-8 hidden md:block">
+            <Magnetic strength={0.3}>
+              <a
+                href="https://doi.org/10.17605/OSF.IO/WRFVP"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor-label="read"
+                className="ink-hover inline-flex items-center gap-1 font-serif italic text-[#8c2a1f]"
+              >
+                Read on OSF <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </Magnetic>
+          </div>
+        </aside>
+
+        <div className="col-span-12 md:col-span-9">
+          <h3 className="font-display text-5xl text-[#1a1612] md:text-6xl">
+            Referential language in climate data visualisations
+          </h3>
+          <p className="mt-2 font-display text-xl italic text-[#3d342a]">
+            Does the map&apos;s origin change how we describe it? A mixed-effects study.
+          </p>
+
+          <RevealOnScroll delay={0.1}>
+            <p className="mt-8 font-serif text-lg leading-[1.8] text-[#1a1612]">
+              A team study of five, supervised by Anne-Flore Cabouat at Télécom Paris.
+              Core question: do participants use systematically different referential
+              language when describing a real versus a fictional map of France? Three
+              hypotheses tested across mixed-effects models, Wilcoxon tests, and bootstrap
+              effect sizes. I led the full analytical cycle: pipeline integration,
+              extension implementations requested by the supervisor, unification of the
+              team codebase into a single notebook, LaTeX report, and oral defence.
+            </p>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.15}>
+            <div className="my-12 grid grid-cols-1 gap-3 md:grid-cols-3">
+              {results.map((m, i) => (
+                <motion.div
+                  key={m.label}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.6 }}
+                  whileHover={{ y: -6, borderColor: "#8c2a1f" }}
+                  className="border border-[#d4c9b3] bg-[#f5f1e8] p-5 transition-all"
+                >
+                  <p className="font-mono text-[0.65rem] uppercase tracking-widest text-[#8c2a1f]">
+                    {m.label}
+                  </p>
+                  <p className="mt-2 font-display text-3xl italic text-[#1a1612]">{m.value}</p>
+                  <p className="mt-2 font-serif text-sm leading-relaxed text-[#3d342a]">{m.note}</p>
+                </motion.div>
+              ))}
+            </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.2}>
+            <motion.div
+              whileHover={{ borderColor: "#8c2a1f" }}
+              className="my-8 rounded-sm border border-[#d4c9b3] bg-[#ede5d3]/40 p-6 transition-colors"
+            >
+              <p className="marginalia mb-3">¶ Publication</p>
+              <a
+                href="https://doi.org/10.17605/OSF.IO/WRFVP"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ink-hover font-mono text-sm text-[#8c2a1f]"
+              >
+                doi: 10.17605/OSF.IO/WRFVP
+              </a>
+              <p className="mt-1 font-serif text-sm italic text-[#3d342a]">
+                Open Science Framework · 2026
+              </p>
+            </motion.div>
+          </RevealOnScroll>
+
+          <RevealOnScroll>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {["Python", "spaCy", "statsmodels", "Mixed-effects models", "Bootstrap", "LaTeX", "Jupyter", "Git"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-[#d4c9b3] px-3 py-1 font-mono text-xs text-[#3d342a] hover:border-[#1a1612] hover:bg-[#1a1612]/5"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </RevealOnScroll>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 function JuryProject() {
   const criteria = [
     {
@@ -215,7 +334,7 @@ function JuryProject() {
       <div className="grid grid-cols-12 gap-x-8 gap-y-12">
         <aside className="col-span-12 md:col-span-3">
           <div className="font-display text-[10rem] italic leading-none text-[#d4c9b3] md:text-[12rem]">
-            ii.
+            iii.
           </div>
           <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">
             2024 · 2025
@@ -232,7 +351,7 @@ function JuryProject() {
             Prix des Technologies et du Numérique
           </h3>
           <p className="mt-2 font-display text-xl italic text-[#3d342a]">
-            Evaluating agritech ventures at the Télécom Paris incubator.
+            Evaluating deep-tech ventures at the Télécom Paris incubator.
           </p>
 
           <RevealOnScroll delay={0.1}>
@@ -244,7 +363,7 @@ function JuryProject() {
               the agritech vertical, applying both structured scoring grids and
               qualitative judgment to assess founders, market theses, and
               technical credibility across multiple selection rounds. The exercise
-              sharpens a particular skill : reading the gap between what a team
+              sharpens a particular skill: reading the gap between what a team
               claims and what the numbers can actually support.
             </p>
           </RevealOnScroll>
@@ -291,13 +410,7 @@ function JuryProject() {
 
           <RevealOnScroll>
             <div className="mt-8 flex flex-wrap gap-2">
-              {[
-                "Agritech",
-                "Startup evaluation",
-                "Deep tech",
-                "Institut Polytechnique de Paris",
-                "Strategic analysis",
-              ].map((tag) => (
+              {["Agritech", "Deep tech", "Startup evaluation", "Institut Polytechnique de Paris"].map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-[#d4c9b3] px-3 py-1 font-mono text-xs text-[#3d342a] hover:border-[#1a1612] hover:bg-[#1a1612]/5"
@@ -307,68 +420,6 @@ function JuryProject() {
               ))}
             </div>
           </RevealOnScroll>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-function VelibProject() {
-  return (
-    <article className="border-b border-[#d4c9b3] py-32">
-      <div className="grid grid-cols-12 gap-x-8 gap-y-12">
-        <aside className="col-span-12 md:col-span-3">
-          <div className="font-display text-[10rem] italic leading-none text-[#d4c9b3] md:text-[12rem]">
-            iii.
-          </div>
-          <p className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">2026</p>
-          <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-widest text-[#8a7c6a]">Coursework</p>
-        </aside>
-        <div className="col-span-12 md:col-span-9">
-          <h3 className="font-display text-5xl text-[#1a1612] md:text-6xl">
-            <em>Vélib&apos;</em>, as a closed migration network
-          </h3>
-          <p className="mt-2 font-display text-xl italic text-[#3d342a]">
-            Stochastic modelling, a queuing theory exercise.
-          </p>
-
-          <RevealOnScroll delay={0.1}>
-            <p className="mt-8 font-serif text-lg leading-[1.85] text-[#1a1612]">
-              Modelled the Paris Vélib&apos; bike-sharing network as a closed
-              continuous-time Markov chain with 25 colonies. Derived the
-              product-form stationary distribution, simulated the system with
-              the Gillespie algorithm, and produced a Beamer report and oral
-              defence (with Virgile Thonnier).
-            </p>
-          </RevealOnScroll>
-
-          <RevealOnScroll delay={0.15}>
-            <motion.div
-              whileHover={{ borderColor: "#8c2a1f" }}
-              className="my-10 rounded-sm border border-[#d4c9b3] bg-[#ede5d3]/40 p-6 transition-colors"
-            >
-              <p className="marginalia mb-3">¶ The pleasing fact</p>
-              <p className="font-display text-2xl italic leading-relaxed text-[#1a1612]">
-                π(n₁, n₂, …, n₂₅) ∝ ∏ᵢ νᵢⁿⁱ / nᵢ!
-              </p>
-              <p className="mt-3 font-serif text-sm italic text-[#3d342a]">
-                The stationary distribution factorizes, even though the
-                stations are coupled by bike conservation. A small theorem with
-                a big consequence : you can analyze each station in isolation.
-              </p>
-            </motion.div>
-          </RevealOnScroll>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            {["CTMC", "Python", "SimPy", "LaTeX Beamer", "Gillespie"].map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-[#d4c9b3] px-3 py-1 font-mono text-xs text-[#3d342a] hover:border-[#1a1612]"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </article>
@@ -438,15 +489,15 @@ export default function Projects() {
               <RevealText by="word" staggerSpeed={0.05}>Selected work</RevealText>
             </h2>
             <span className="hidden font-mono text-[0.65rem] uppercase tracking-[0.25em] text-[#8a7c6a] md:block">
-              ¶ four essays, four disciplines
+              ¶ four disciplines, one through-line
             </span>
           </div>
           <InkSpread className="mb-16 bg-[#d4c9b3]" />
         </RevealOnScroll>
 
         <SamenaProject />
+        <ResearchProject />
         <JuryProject />
-        <VelibProject />
         <SemanticProject />
       </div>
     </section>
