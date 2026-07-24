@@ -6,7 +6,7 @@ import { RevealText, InkSpread, RevealOnScroll, Magnetic } from "@/components/ui
 
 const channels = [
   { label: "by post",        detail: "xmoncet@icloud.com",            href: "mailto:xmoncet@icloud.com"                },
-  { label: "professionally", detail: "linkedin.com/in/xisco-moncet",  href: "https://linkedin.com/in/xisco-moncet"     },
+  { label: "professionally", detail: "linkedin.com/in/xiscomoncet",   href: "https://www.linkedin.com/in/xiscomoncet/"  },
   { label: "by code",        detail: "github.com/xiscoooo",            href: "https://github.com/xiscoooo"              },
   { label: "by phone",       detail: "+33 6 77 53 41 25",             href: "tel:+33677534125"                          },
 ];

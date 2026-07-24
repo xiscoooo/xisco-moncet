@@ -79,13 +79,15 @@ function SamenaProject() {
 
           <RevealOnScroll delay={0.1}>
             <p className="mt-8 font-serif text-xl leading-[1.8] text-[#1a1612]">
-              An end-to-end platform for consultants : ingestion of
-              heterogeneous corpora (PDFs, slide decks, internal reports),
-              followed by structured extraction with explicit grounding,
-              semantic search with citation, and a mission workspace that
-              accumulates institutional knowledge over time. Built on
-              retrieval-augmented generation with a strong bias against
-              hallucination : every answer must be traceable to its source.
+              An end-to-end platform for consulting firms. Saména ingests
+              heterogeneous corpora (PDFs, slide decks, internal reports) and
+              builds a structured, agentic knowledge base — a living wiki that
+              understands the firm&apos;s institutional memory. Queries are
+              resolved by an LLM agent that orchestrates hybrid retrieval,
+              cross-document reasoning, and structured extraction. Every answer
+              is sourced, every claim is traceable, and the system is
+              explicitly designed to say <em>I don&apos;t know</em> rather than
+              hallucinate.
             </p>
           </RevealOnScroll>
 
@@ -123,9 +125,9 @@ function SamenaProject() {
               <p className="marginalia mb-4">¶ Architecture, in three movements</p>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { step: "01", t: "Ingestion", d: "PDFs, decks, reports → normalized chunks"           },
-                  { step: "02", t: "Retrieval", d: "Embeddings + structured filters → grounded context" },
-                  { step: "03", t: "Synthesis", d: "RAG → answer with citations, refusal when uncertain" },
+                  { step: "01", t: "Ingestion",  d: "PDFs, decks, reports → structured chunks, canonical tag taxonomy, async deduplication" },
+                  { step: "02", t: "Knowledge",  d: "Agentic wiki: hybrid retrieval (vector + BM25 + synonym graph), cross-document reasoning" },
+                  { step: "03", t: "Synthesis",  d: "LLM agent → sourced answer with citations, explicit refusal when uncertain" },
                 ].map((b, i) => (
                   <motion.div
                     key={b.step}
@@ -175,7 +177,7 @@ function SamenaProject() {
             <div className="mt-12 border-t border-[#d4c9b3] pt-6">
               <p className="marginalia mb-3">¶ Built with</p>
               <div className="flex flex-wrap gap-2">
-                {["RAG", "Vector DB", "Next.js", "Python", "FastAPI", "OpenAI", "Anthropic", "BERTopic"].map(
+                {["Agentic LLM", "Hybrid retrieval", "Qdrant", "BM25", "Python", "FastAPI", "Anthropic", "Next.js"].map(
                   (tag, i) => (
                     <motion.span
                       key={tag}

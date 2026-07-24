@@ -90,23 +90,6 @@ const categories: Category[] = [
       { name: "Git / Linux" },
     ],
   },
-  {
-    num: "ε",
-    title: "Graphs",
-    subtitle: "networks, diffusion, and spectral methods",
-    description:
-      "SD212 with Thomas Bonald at Télécom Paris. Sparse matrices, ranking, community detection. The kind of course that makes you see graphs everywhere.",
-    skills: [
-      { name: "PageRank", weight: "primary" },
-      { name: "Louvain (modularity)" },
-      { name: "Spectral embedding" },
-      { name: "GNN", weight: "primary" },
-      { name: "Heat diffusion" },
-      { name: "Hierarchical clustering" },
-      { name: "scikit-network" },
-      { name: "Sparse matrices" },
-    ],
-  },
 ];
 
 function SkillTag({ skill, idx }: { skill: Skill; idx: number }) {
@@ -160,7 +143,7 @@ function CategoryCard({ cat, idx }: { cat: Category; idx: number }) {
           transition={{ duration: 0.4 }}
           className="mt-2 font-mono text-[0.65rem] uppercase tracking-widest"
         >
-          chapter {cat.num} of ε
+          chapter {cat.num} of δ
         </motion.p>
       </div>
 
