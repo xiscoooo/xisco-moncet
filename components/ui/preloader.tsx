@@ -5,19 +5,37 @@ import { useState, useEffect } from "react";
 
 export function Preloader() {
   const [visible, setVisible] = useState(true);
+  const [count, setCount] = useState(0);
 
+  // Count 00 → 100, ease-out, like a press warming up.
   useEffect(() => {
-    const t = setTimeout(() => setVisible(false), 2000);
-    return () => clearTimeout(t);
+    const DURATION = 1500;
+    const start = performance.now();
+    let rafId = 0;
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / DURATION);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setCount(Math.round(eased * 100));
+      if (p < 1) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        setTimeout(() => setVisible(false), 300);
+      }
+    };
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   return (
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.7, ease: [0.65, 0, 0.35, 1] } }}
-          className="fixed inset-0 z-[9997] flex items-center justify-center bg-[#f5f1e8]"
+          initial={{ clipPath: "inset(0 0 0% 0)" }}
+          exit={{
+            clipPath: "inset(0 0 100% 0)",
+            transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] },
+          }}
+          className="fixed inset-0 z-[9997] flex flex-col items-center justify-center bg-[#f5f1e8]"
         >
           {/* Paper grain on preloader */}
           <div
@@ -27,14 +45,29 @@ export function Preloader() {
             }}
           />
 
+          {/* Top masthead line */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="absolute inset-x-0 top-0 flex items-center justify-between border-b border-[#d4c9b3] px-6 py-4"
+          >
+            <span className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-[#8a7c6a]">
+              Vol. I · № 04
+            </span>
+            <span className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-[#8a7c6a]">
+              Paris · MMXXVI
+            </span>
+          </motion.div>
+
           <div className="text-center">
             <motion.p
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
               className="font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#8a7c6a]"
             >
-              Vol. I · № 04
+              ¶ Now printing
             </motion.p>
 
             <motion.h1
@@ -47,28 +80,29 @@ export function Preloader() {
               <motion.span
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, duration: 0.5, type: "spring" }}
+                transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
                 className="text-[#8c2a1f]"
               >
                 .
               </motion.span>
             </motion.h1>
 
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1.1, delay: 0.5, ease: [0.65, 0, 0.35, 1] }}
-              className="mx-auto mt-6 h-px w-28 origin-left bg-[#d4c9b3]"
-            />
+            <div className="mx-auto mt-6 h-px w-40 origin-left overflow-hidden bg-[#d4c9b3]">
+              <motion.div
+                className="h-full bg-[#8c2a1f]"
+                style={{ width: `${count}%` }}
+              />
+            </div>
+          </div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
-              className="mt-4 font-mono text-[0.6rem] uppercase tracking-[0.25em] text-[#8a7c6a]"
-            >
-              Paris · MMXXVI
-            </motion.p>
+          {/* Counter, bottom-right — like a page proof */}
+          <div className="absolute inset-x-0 bottom-0 flex items-end justify-between border-t border-[#d4c9b3] px-6 py-4">
+            <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-[#8a7c6a]">
+              Setting type
+            </span>
+            <span className="font-display text-5xl italic tabular-nums text-[#1a1612] md:text-6xl">
+              {String(count).padStart(3, "0")}
+            </span>
           </div>
         </motion.div>
       )}

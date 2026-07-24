@@ -8,6 +8,7 @@ import {
   Magnetic,
   ScrollVelocity,
 } from "@/components/ui/animations";
+import InkField from "@/components/ui/ink-field";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -25,6 +26,9 @@ export default function Hero() {
       ref={ref}
       className="relative flex min-h-screen flex-col justify-between overflow-hidden px-6 pb-12 pt-32"
     >
+      {/* Interactive halftone backdrop */}
+      <InkField className="absolute inset-0 z-0" />
+
       {/* Floating ornament — top right */}
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
@@ -42,7 +46,7 @@ export default function Hero() {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="mx-auto w-full max-w-6xl">
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
         {/* Top metadata band */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -176,7 +180,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.6 }}
-        className="mt-24 border-y border-[#d4c9b3] py-4"
+        className="relative z-10 mt-24 border-y border-[#d4c9b3] py-4"
       >
         <ScrollVelocity baseVelocity={20}>
           <span className="font-display text-3xl italic text-[#3d342a] md:text-5xl">
@@ -207,7 +211,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block"
+        className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 md:block"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

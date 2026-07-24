@@ -9,10 +9,12 @@ import Ornament from "@/components/ornament";
 import { CursorTracker, ScrollProgress } from "@/components/ui/animations";
 import { Preloader } from "@/components/ui/preloader";
 import { SectionDots } from "@/components/ui/section-dots";
+import SmoothScroll from "@/components/ui/smooth-scroll";
 
 export default function Home() {
   return (
     <main className="paper-grain relative">
+      <SmoothScroll />
       <Preloader />
       <CursorTracker />
       <ScrollProgress />
